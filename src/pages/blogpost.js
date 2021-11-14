@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 
@@ -15,7 +16,7 @@ const Blogpost = ({ data }) => {
     <Layout>
       <div className="eyecatch">
         <figure>
-          <img src="images-baseblog/eyecatch.jpg" alt="アイキャッチ画像の説明" />
+          <GatsbyImage image={data.contentfulBlogPost.eyecatch.gatsbyImageData} alt={data.contentfulBlogPost.eyecatch.description} />
         </figure>
       </div>
       <article className="content">
@@ -29,8 +30,11 @@ const Blogpost = ({ data }) => {
             <div className="cat">
               <FontAwesomeIcon icon={faFolderOpen} />
               <ul>
-                <li className="スラッグ">カテゴリーＡ</li>
-                <li className="スラッグ">カテゴリーＢ</li>
+                {data.contentfulBlogPost.category.map(category => (
+                  <li className={category.categorySlug} key={category.id}>
+                    {category.category}
+                  </li>
+                ))}
               </ul>
             </div>
           </aside>
@@ -67,6 +71,24 @@ export const query = graphql`
       title
       publishDateJP:publishDate(formatString: "YYYY年MM月DD日")
       publishDate
+      category {
+        category
+        categorySlug
+        id
+      }
+      eyecatch {
+        gatsbyImageData(layout: FULL_WIDTH)
+        description
+        file {
+          details {
+            image {
+              width
+              height
+            }
+          }
+          url
+        }
+      }
     }
   }
 `
