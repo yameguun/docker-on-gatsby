@@ -35,19 +35,16 @@ export default function Footer() {
         <ul className="sns">
           <li>
             <a href="https://twitter.com/">
-              <i className="fab fa-twitter" />
               <FontAwesomeIcon icon={ faTwitter } />
             </a>
           </li>
           <li>
             <a href="https://facebook.com/">
-              <i className="fab fa-facebook-square" />
               <FontAwesomeIcon icon={ faFacebookSquare } />
             </a>
           </li>
           <li>
             <a href="http://instagram.com/">
-              <i className="fab fa-instagram" />
               <FontAwesomeIcon icon={ faInstagram } />
             </a>
           </li>
