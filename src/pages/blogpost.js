@@ -22,9 +22,9 @@ const Blogpost = ({ data }) => {
         <div className="container">
           <h1 className="bar">{ data.contentfulBlogPost.title }</h1>
           <aside className="info">
-            <time dateTime="XXXX-XX-XX">
+            <time dateTime={ data.contentfulBlogPost.publishDate }>
               <FontAwesomeIcon icon={faClock} />
-              XXXX年XX月XX日
+              { data.contentfulBlogPost.publishDateJP }
             </time>
             <div className="cat">
               <FontAwesomeIcon icon={faFolderOpen} />
@@ -65,6 +65,8 @@ export const query = graphql`
   query {
     contentfulBlogPost {
       title
+      publishDateJP:publishDate(formatString: "YYYY年MM月DD日")
+      publishDate
     }
   }
 `
