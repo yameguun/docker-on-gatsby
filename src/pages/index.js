@@ -5,7 +5,7 @@ import Img from "gatsby-image"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
-export default function Home({ data }) {
+const Home = ({ data }) => {
   return (
     <Layout>
       <Seo />
@@ -116,3 +116,5 @@ query {
   }
 }
 `
+
+export default Home

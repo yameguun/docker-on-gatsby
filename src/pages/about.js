@@ -8,7 +8,7 @@ import Seo from "../components/seo"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faUtensils, faCheckSquare } from "@fortawesome/free-solid-svg-icons"
 
-export default function About({ data, location }) {
+const About = ({ data, location }) => {
   return (
     <Layout>
       <Seo
@@ -80,3 +80,5 @@ query {
   }
 }
 `
+
+export default About

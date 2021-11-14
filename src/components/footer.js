@@ -9,7 +9,7 @@ import {
   faInstagram
 } from "@fortawesome/free-brands-svg-icons"
 
-export default function Footer() {
+const Footer = () => {
 
   const data = useStaticQuery(graphql`
   query {
@@ -60,3 +60,5 @@ export default function Footer() {
     </footer>
   )
 }
+
+export default Footer
