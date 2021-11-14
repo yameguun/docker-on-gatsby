@@ -2,6 +2,13 @@ import React from "react"
 import { graphql, useStaticQuery, Link } from "gatsby"
 import Img from "gatsby-image"
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import {
+  faTwitter,
+  faFacebookSquare,
+  faInstagram
+} from "@fortawesome/free-brands-svg-icons"
+
 export default function Footer() {
 
   const data = useStaticQuery(graphql`
@@ -29,19 +36,19 @@ export default function Footer() {
           <li>
             <a href="https://twitter.com/">
               <i className="fab fa-twitter" />
-              <span className="sr-only">Twitter</span>
+              <FontAwesomeIcon icon={ faTwitter } />
             </a>
           </li>
           <li>
             <a href="https://facebook.com/">
               <i className="fab fa-facebook-square" />
-              <span className="sr-only">Facebook</span>
+              <FontAwesomeIcon icon={ faFacebookSquare } />
             </a>
           </li>
           <li>
             <a href="http://instagram.com/">
               <i className="fab fa-instagram" />
-              <span className="sr-only">Instagram</span>
+              <FontAwesomeIcon icon={ faInstagram } />
             </a>
           </li>
         </ul>
