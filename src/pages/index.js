@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -11,8 +11,8 @@ const Home = ({ data }) => {
       <Seo />
       <section className="hero">
         <figure>
-          <Img
-            fluid={data.hero.childImageSharp.fluid}
+          <GatsbyImage
+            image={data.hero.childImageSharp.gatsbyImageData}
             alt="hero"
             style={{ height: "100%" }}
           />
@@ -31,7 +31,7 @@ const Home = ({ data }) => {
           <div className="details">
             <div className="detail">
               <figure>
-                <Img fluid={data.fruit.childImageSharp.fluid} alt="fruit" />
+                <GatsbyImage image={data.fruit.childImageSharp.gatsbyImageData} alt="fruit" />
               </figure>
               <h3>フルーツ</h3>
               <p>FRUIT</p>
@@ -39,7 +39,7 @@ const Home = ({ data }) => {
             </div>
             <div className="detail">
               <figure>
-                <Img fluid={data.grain.childImageSharp.fluid} alt="grain" />
+                <GatsbyImage image={data.grain.childImageSharp.gatsbyImageData} alt="grain" />
               </figure>
               <h3>穀物</h3>
               <p>GRAIN</p>
@@ -47,7 +47,7 @@ const Home = ({ data }) => {
             </div>
             <div className="detail">
               <figure>
-                <Img fluid={data.beverage.childImageSharp.fluid} alt="beverage" />
+                <GatsbyImage image={data.beverage.childImageSharp.gatsbyImageData} alt="beverage" />
               </figure>
               <h3>飲み物</h3>
               <p>BEVERAGE</p>
@@ -59,8 +59,8 @@ const Home = ({ data }) => {
       <section className="photo">
         <h2 className="sr-only">Photo</h2>
         <figure>
-          <Img
-            fluid={data.berry.childImageSharp.fluid}
+          <GatsbyImage
+            image={data.berry.childImageSharp.gatsbyImageData}
             alt="berry"
             style={{ height: "100%" }}
           />
@@ -74,44 +74,27 @@ export const query = graphql`
 query {
   hero: file(relativePath: { eq: "hero.jpg" }) {
     childImageSharp {
-      fluid(maxWidth: 1600) {
-        ...GatsbyImageSharpFluid_withWebp
-      }
+      gatsbyImageData(layout: FULL_WIDTH)
     }
   }
   fruit: file(relativePath: { eq: "fruit.jpg" }) {
     childImageSharp {
-      fluid(maxWidth: 320) {
-        ...GatsbyImageSharpFluid_withWebp
-      }
+      gatsbyImageData(width: 320, layout: FULL_WIDTH)
     }
   }
   grain: file(relativePath: { eq: "grain.jpg" }) {
     childImageSharp {
-      fluid(maxWidth: 320) {
-        ...GatsbyImageSharpFluid_withWebp
-      }
+      gatsbyImageData(width: 320, layout: FULL_WIDTH)
     }
   }
   beverage: file(relativePath: { eq: "beverage.jpg" }) {
     childImageSharp {
-      fluid(maxWidth: 320) {
-        ...GatsbyImageSharpFluid_withWebp
-      }
+      gatsbyImageData(width: 320, layout: FULL_WIDTH)
     }
   }
   berry: file(relativePath: { eq: "berry.jpg" }) {
     childImageSharp {
-      fluid(maxWidth: 1600) {
-        ...GatsbyImageSharpFluid_withWebp
-      }
-    }
-  }
-  pattern: file(relativePath: { eq: "pattern.jpg" }) {
-    childImageSharp {
-      fluid(maxWidth: 1920, quality: 90) {
-        ...GatsbyImageSharpFluid_withWebp
-      }
+      gatsbyImageData(layout: FULL_WIDTH)
     }
   }
 }
